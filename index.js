@@ -10,8 +10,8 @@ const commit = async () => {
 		today.getTime() - 0 * 24 * 60 * 60 * 1000 - day * 24 * 60 * 60 * 1000
 	);
 	let commitTime = `2019.${
-		today.getMonth() + 1
-	}.${today.getDate()}`;
+		Math.floor(Math.random()*10) + 1
+	}.${Math.floor(Math.random()*10)}`;
 	// if (today.getFullYear()<= 2019) {
 	// 	return;
 	// }
