@@ -46,7 +46,12 @@ const newCommit = async () => {
 	await cmd("git status");
 	await cmd("git add .");
 	await cmd(`git commit -m "${newCommitTime}" --no-edit --date="${newCommitTime}"`);
+	await Promise.resolve(1)
 }
 for (let index = 0; index < 1; index++) {
-	newCommit()
+	newCommit().then(res => {
+		if(res == 1) {
+			newCommit()
+		}
+	})
 }
