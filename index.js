@@ -9,12 +9,13 @@ const commit = async () => {
 	today.setTime(
 		today.getTime() - 0 * 24 * 60 * 60 * 1000 - day * 24 * 60 * 60 * 1000
 	);
-	let commitTime = `2019.${
-		Math.floor(Math.random()*10) + 1
-	}.${Math.floor(Math.random()*10)}`;
-	// if (today.getFullYear()<= 2019) {
-	// 	return;
-	// }
+	let commitTime = `${today.getFullYear() - 2}.${
+		today.getMonth() + 1
+	}.${today.getDate()}`;
+	if (today.getFullYear() - 2 > 2020) {
+		console.log('走到这');
+		return;
+	}
 	let commitNumber = random(1, 10);
 	let dayNumber = random(1, 3);
 	while (commitNumber) {
@@ -28,7 +29,7 @@ const commit = async () => {
 		day -= dayNumber;
 		commit();
 	} else {
-		// await cmd('git push');
+		// await cmd('git push origin master');
 	}
 };
 commit();
