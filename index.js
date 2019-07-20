@@ -47,6 +47,6 @@ const newCommit = async () => {
 	await cmd("git add .");
 	await cmd(`git commit -m "${newCommitTime}" --no-edit --date="${newCommitTime}"`);
 }
-for (let index = 0; index < 5; index++) {
+for (let index = 0; index < 1; index++) {
 	newCommit()
 }
