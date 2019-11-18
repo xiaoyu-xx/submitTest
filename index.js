@@ -48,10 +48,14 @@ const newCommit = async () => {
 	await cmd(`git commit -m "${newCommitTime}" --no-edit --date="${newCommitTime}"`);
 	await Promise.resolve(1)
 }
-for (let index = 0; index < 5; index++) {
-	newCommit().then(res => {
-		if(res == 1) {
-			newCommit()
-		}
-	})
+try {
+	for (let index = 0; index < 50; index++) {
+		newCommit().then(res => {
+			if(res == 1) {
+				newCommit()
+			}
+		})
+	}
+} catch (error) {
+	console.log('捕捉到异常：', error);
 }
