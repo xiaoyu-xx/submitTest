@@ -41,21 +41,17 @@ const random = (lower, upper) => {
 const newCommit = async () => {
 	let month = random(1, 12)
 	let day = random(1, 30)
-	let newCommitTime = `2019.${month}.${day}`
+	let newCommitTime = `2020.${month}.${day}`
 	await file(newCommitTime);
 	await cmd("git status");
 	await cmd("git add .");
 	await cmd(`git commit -m "${newCommitTime}" --no-edit --date="${newCommitTime}"`);
 	await Promise.resolve(1)
 }
-try {
-	for (let index = 0; index < 50; index++) {
-		newCommit().then(res => {
-			if(res == 1) {
-				newCommit()
-			}
-		})
-	}
-} catch (error) {
-	console.log('捕捉到异常：', error);
+for (let index = 0; index < 50; index++) {
+	newCommit().then(res => {
+		if (res == 1) {
+			newCommit()
+		}
+	})
 }
