@@ -13,9 +13,9 @@ const commit = async () => {
   today.getMonth() + 1
  }.${today.getDate()}`;
  console.log('today.getFullYear()', today.getFullYear());
- if (today.getFullYear() > 2021) {
-  return;
- }
+//  if (today.getFullYear() > 2021) {
+//   return;
+//  }
  let commitNumber = random(1, 10);
  let dayNumber = random(1, 3);
  while (commitNumber) {
