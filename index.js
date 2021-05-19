@@ -29,7 +29,7 @@ const commit = async () => {
   day -= dayNumber;
   commit();
  } else {
-  await cmd('git push origin master');
+  await cmd('git push origin main');
  }
 };
 commit();
